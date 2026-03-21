@@ -1,0 +1,95 @@
+<style>
+    /* Control overall size */
+    .navbar form {
+        background: white;
+        border-radius: 50px;
+        padding: 3px 6px;
+        /* ⬅ reduced */
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+        max-width: 350px;
+        /* ⬅ limit width */
+        margin: auto;
+    }
+
+    /* Input smaller */
+    .navbar input[type="search"] {
+        border: none;
+        outline: none;
+        border-radius: 50px;
+        padding: 6px 10px;
+        /* ⬅ reduced */
+        font-size: 14px;
+    }
+
+    /* Remove bootstrap extra spacing */
+    .navbar .form-control {
+        box-shadow: none;
+    }
+
+    /* Button compact */
+    .navbar button {
+        border-radius: 50px;
+        padding: 5px 10px;
+        /* ⬅ reduced */
+        font-size: 13px;
+    }
+
+    /* Icon spacing fix */
+    .navbar button i {
+        margin-right: 3px;
+    }
+
+    /* Optional: make button circular */
+    .navbar button {
+        width: auto;
+    }
+</style>
+<nav class="navbar navbar-expand-lg navbar-light bg-white mb-4 border-bottom sticky-top">
+
+
+    <div class="container-fluid">
+
+        <!-- IRH Circular Butterfly Logo -->
+        <a class="navbar-brand" href="/listings">
+            <div class="irh-circle-logo">
+                <div class="butterfly b1">🦋</div>
+                <div class="butterfly b2">🦋</div>
+                <div class="butterfly b3">🦋</div>
+
+                <div class="heart-box">
+                    <span>I</span><span>🙄</span><span>H</span>
+                </div>
+            </div>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+
+                <a class="nav-link" href="/listings">Explore</a>
+
+            </div>
+            <div class="navbar-nav mx-auto w-40">
+                <form class="d-flex w-100" action="/listings/search" method="GET">
+                    <input class="form-control me-2" type="search" placeholder="Search destinations">
+                    <button class="btn btn-outline-danger" type="submit">
+                        <span><i class="fa-solid fa-magnifying-glass"></i>Search</span>
+                    </button>
+                </form>
+            </div>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="/listings/new">Airbnb your home</a>
+                <% if(!curruser) { %>
+                    <a class="nav-link active" href="/signup"><b>Signup</b></a>
+                    <a class="nav-link" href="/login"><b>login</b></a>
+                    <% } %>
+                        <% if(curruser) { %>
+                            <a class="nav-link" href="/logout"><b>Logout</b></a>
+                            <% } %>
+            </div>
+        </div>
+    </div>
+</nav>
