@@ -5,9 +5,35 @@ const geocodingClient = mxbGeocoading({ accessToken: mapToken });
 
 
 module.exports.index = async (req, res) => {
-    const alllistings = await Listing.find({});
-    res.render("listings/index.ejs", { alllistings });
+    let { category } = req.query;
+    let filter = {};
+    if (category) {
+        filter.category = category;
+    }
+    const alllistings = await Listing.find(filter);
+    res.render("listings/index.ejs", { alllistings, category });
 }
+
+module.exports.searchListing = async (req, res) => {
+    let { q } = req.query;
+    if (!q || !q.trim()) {
+        return res.redirect("/listings");
+    }
+    const query = q.trim();
+    const alllistings = await Listing.find({
+        $or: [
+            { title: { $regex: query, $options: "i" } },
+            { location: { $regex: query, $options: "i" } },
+            { country: { $regex: query, $options: "i" } },
+            { description: { $regex: query, $options: "i" } }
+        ]
+    });
+    if (alllistings.length === 0) {
+        req.flash("error", `No listings found matching "${query}"`);
+        return res.redirect("/listings");
+    }
+    res.render("listings/index.ejs", { alllistings, category: null });
+};
 
 module.exports.rendernewform = (req, res) => {
 

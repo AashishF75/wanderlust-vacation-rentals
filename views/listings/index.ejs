@@ -76,39 +76,42 @@
     <div class="top-bar">
 
         <div id="filters">
-            <div class="filter"><i class="fa-solid fa-fire"></i>
+            <a href="/listings?category=Trending" class="filter text-decoration-none text-dark"><i class="fa-solid fa-fire"></i>
                 <p>Trending</p>
-            </div>
-            <div class="filter"><i class="fa-solid fa-bed"></i>
+            </a>
+            <a href="/listings?category=Room" class="filter text-decoration-none text-dark"><i class="fa-solid fa-bed"></i>
                 <p>Room</p>
-            </div>
-            <div class="filter"><i class="fa-solid fa-city"></i>
+            </a>
+            <a href="/listings?category=City" class="filter text-decoration-none text-dark"><i class="fa-solid fa-city"></i>
                 <p>City</p>
-            </div>
-            <div class="filter"><i class="fa-solid fa-mountain"></i>
+            </a>
+            <a href="/listings?category=Mountain" class="filter text-decoration-none text-dark"><i class="fa-solid fa-mountain"></i>
                 <p>Mountain</p>
-            </div>
-            <div class="filter"><i class="fa-solid fa-house"></i>
+            </a>
+            <a href="/listings?category=Cottage" class="filter text-decoration-none text-dark"><i class="fa-solid fa-house"></i>
                 <p>Cottage</p>
-            </div>
-            <div class="filter"><i class="fa-solid fa-person-swimming"></i>
+            </a>
+            <a href="/listings?category=Pool" class="filter text-decoration-none text-dark"><i class="fa-solid fa-person-swimming"></i>
                 <p>Pool</p>
-            </div>
-            <div class="filter"><i class="fa-solid fa-tractor"></i>
+            </a>
+            <a href="/listings?category=Farms" class="filter text-decoration-none text-dark"><i class="fa-solid fa-tractor"></i>
                 <p>Farms</p>
-            </div>
-            <div class="filter"><i class="fa-solid fa-tent"></i>
+            </a>
+            <a href="/listings?category=Camping" class="filter text-decoration-none text-dark"><i class="fa-solid fa-tent"></i>
                 <p>Camping</p>
-            </div>
-            <div class="filter"><i class="fa-solid fa-snowflake"></i>
+            </a>
+            <a href="/listings?category=Arctic" class="filter text-decoration-none text-dark"><i class="fa-solid fa-snowflake"></i>
                 <p>Arctic</p>
-            </div>
-            <div class="filter"><i class="fa-solid fa-landmark-dome"></i>
+            </a>
+            <a href="/listings?category=Doms" class="filter text-decoration-none text-dark"><i class="fa-solid fa-landmark-dome"></i>
                 <p>Doms</p>
-            </div>
-            <div class="filter"><i class="fa-solid fa-sailboat"></i>
+            </a>
+            <a href="/listings?category=Sailboats" class="filter text-decoration-none text-dark"><i class="fa-solid fa-sailboat"></i>
                 <p>Sailboats</p>
-            </div>
+            </a>
+            <a href="/listings" class="filter text-decoration-none text-dark"><i class="fa-solid fa-rotate-left"></i>
+                <p>All</p>
+            </a>
         </div>
 
         <div class="toggle-box">
@@ -121,7 +124,8 @@
     <!-- LISTINGS -->
     <div class="container">
         <div class="row row-cols-1 row-cols-md-3 g-3 my-3">
-            <% for(let list of alllistings) { %>
+            <% if (alllistings && alllistings.length > 0) { %>
+                <% for(let list of alllistings) { %>
 
                 <div class="col">
                     <a href="/listings/<%= list._id %>" class="link_img">
@@ -142,6 +146,12 @@
                 </div>
 
                 <% } %>
+            <% } else { %>
+                <div class="col-12 text-center py-5">
+                    <h4 class="text-muted">No listings available.</h4>
+                    <a href="/listings" class="btn btn-outline-danger mt-3">Explore All Listings</a>
+                </div>
+            <% } %>
         </div>
     </div>
 

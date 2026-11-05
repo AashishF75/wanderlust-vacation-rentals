@@ -28,9 +28,28 @@
                         <textarea id="description" name="listing[description]" class="form-control" required></textarea>
                         <div class="invalid-feedback">Please enter sort description.</div>
                     </div>
-                    <div class="mb-3"><label for="location" class="form-label">Location:</label>
-                        <input type="text" id="location" name="listing[location]" class="form-control" required>
-                        <div class="invalid-feedback">Please enter location.</div>
+                    <div class="row">
+                        <div class="mb-3 col-md-6">
+                            <label for="location" class="form-label">Location:</label>
+                            <input type="text" id="location" name="listing[location]" class="form-control" required>
+                            <div class="invalid-feedback">Please enter location.</div>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label for="category" class="form-label">Category:</label>
+                            <select name="listing[category]" id="category" class="form-select">
+                                <option value="Trending" selected>Trending</option>
+                                <option value="Room">Room</option>
+                                <option value="City">City</option>
+                                <option value="Mountain">Mountain</option>
+                                <option value="Cottage">Cottage</option>
+                                <option value="Pool">Pool</option>
+                                <option value="Farms">Farms</option>
+                                <option value="Camping">Camping</option>
+                                <option value="Arctic">Arctic</option>
+                                <option value="Doms">Doms</option>
+                                <option value="Sailboats">Sailboats</option>
+                            </select>
+                        </div>
                     </div>
 
                     <div class="mb-3">

@@ -28,10 +28,28 @@
                         <textarea id="description" name="listing[description]" required
                             class="form-control"><%=listings.description%></textarea>
                     </div>
-                    <div class="mb-3">
-                        <label for="location">Location:</label>
-                        <input type="text" id="location" name="listing[location]" value="<%=listings.location%>"
-                            required class="form-control">
+                    <div class="row">
+                        <div class="mb-3 col-md-6">
+                            <label for="location">Location:</label>
+                            <input type="text" id="location" name="listing[location]" value="<%=listings.location%>"
+                                required class="form-control">
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label for="category">Category:</label>
+                            <select name="listing[category]" id="category" class="form-select">
+                                <option value="Trending" <%= listings.category === 'Trending' ? 'selected' : '' %>>Trending</option>
+                                <option value="Room" <%= listings.category === 'Room' ? 'selected' : '' %>>Room</option>
+                                <option value="City" <%= listings.category === 'City' ? 'selected' : '' %>>City</option>
+                                <option value="Mountain" <%= listings.category === 'Mountain' ? 'selected' : '' %>>Mountain</option>
+                                <option value="Cottage" <%= listings.category === 'Cottage' ? 'selected' : '' %>>Cottage</option>
+                                <option value="Pool" <%= listings.category === 'Pool' ? 'selected' : '' %>>Pool</option>
+                                <option value="Farms" <%= listings.category === 'Farms' ? 'selected' : '' %>>Farms</option>
+                                <option value="Camping" <%= listings.category === 'Camping' ? 'selected' : '' %>>Camping</option>
+                                <option value="Arctic" <%= listings.category === 'Arctic' ? 'selected' : '' %>>Arctic</option>
+                                <option value="Doms" <%= listings.category === 'Doms' ? 'selected' : '' %>>Doms</option>
+                                <option value="Sailboats" <%= listings.category === 'Sailboats' ? 'selected' : '' %>>Sailboats</option>
+                            </select>
+                        </div>
                     </div>
                     <div class="mb-3">
                         Original Listing Image<br>
@@ -44,7 +62,7 @@
                     </div>
 
 
-                    <button class="btn btn-dark add-btn">Edited</button>
+                    <button class="btn btn-dark add-btn">Save Changes</button>
                 </form>
             </div>
         </div>

@@ -1,5 +1,5 @@
 require("dotenv").config();
-console.log("ENV:", process.env.ATLAS_URI);
+console.log("Environment loaded successfully.");
 
 
 const express = require("express");//express import
@@ -50,7 +50,7 @@ store.on("error", function (e) {
 
 const sessionOptions = {
     store: store,
-    secret: "mysecrethasini",
+    secret: process.env.SECRET || "mysecrethasini",
     resave: false,
     saveUninitialized: false,
     cookie: {
@@ -100,6 +100,10 @@ app.get("/demouser", async (req, res) => {
 
 
 
+
+app.get("/", (req, res) => {
+    res.redirect("/listings");
+});
 
 app.use("/listings", listingsRouter);//listing routes use kr rha h
 app.use("/listings/:id/reviews", reviewsRouter);//review routes use kr rha h

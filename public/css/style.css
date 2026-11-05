@@ -91,6 +91,20 @@ body {
     width: 70vh !important;
     height: 50vh !important;
 } */
+.show-img {
+    height: 30vh;
+    min-height: 280px;
+    max-height: 420px;
+    border-radius: 1.5rem !important;
+    object-fit: cover !important;
+    width: 100%;
+}
+
+.show-card {
+    padding-left: 0;
+    padding-right: 0;
+}
+
 #image_show {
     width: 70vh !important;
     height: 50vh !important;
